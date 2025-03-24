@@ -1,0 +1,207 @@
+{
+  "Select Tool": ["เลือกเครื่องมือ", "เลือกเครื่องมือที่คุณต้องการใช้"],
+  "UI Scale": ["ขนาด UI", "ปรับขนาดอินเทอร์เฟซผู้ใช้"],
+  
+  "Auto Farm Level": ["เลเวลอัตโนมัติ", "ฟาร์มเลเวลอัตโนมัติ"],
+  "Auto Farm Nearest": ["ฟาร์มศัตรูใกล้เคียง", "ฆ่าศัตรูใกล้เคียงอัตโนมัติ"],
+  "Sky Piea Farm": ["ฟาร์ม Sky Piea", "ฟาร์มศัตรูใน Sky Piea อัตโนมัติ"],
+  "Player Hunter Quest": ["ล่าผู้เล่น", "รับและทำภารกิจล่าผู้เล่น"],
+
+  "Auto Factory": ["โรงงานอัตโนมัติ", "ฟาร์มโรงงานอัตโนมัติ ปรากฏทุก 1:30 (ชั่วโมง:นาที)"],
+  "Auto Farm Ectoplasm": ["ฟาร์ม Ectoplasm", "ฟาร์ม Ectoplasm อัตโนมัติ"],
+
+  "Auto Pirates Sea": ["ฟาร์มโจรสลัดทะเล", "ทำภารกิจโจรสลัดใน Castelo do Mar อัตโนมัติ"],
+  "Auto Farm Bones": ["ฟาร์มกระดูก", "ฟาร์มกระดูกอัตโนมัติ"],
+  "Auto Kill Soul Reaper": ["ฆ่า Soul Reaper อัตโนมัติ", "เรียกและฆ่า Soul Reaper"],
+  "Auto Trade Bones": ["แลกกระดูก", "แลกกระดูกเพื่อรับรางวัลอัตโนมัติ"],
+
+  "Auto Farm Candy": ["ฟาร์มลูกอม", "ฟาร์มลูกอมอัตโนมัติในช่วงกิจกรรมคริสต์มาส"],
+  "Auto Christmas Gift": ["ของขวัญคริสต์มาสอัตโนมัติ", "เก็บของขวัญคริสต์มาสทุก 1 ชั่วโมง"],
+  "Auto Store Holiday Gift": ["เก็บของขวัญ", "เก็บของขวัญที่เก็บได้ในกิจกรรม"],
+
+  "Auto Chest [ Tween ]": ["เก็บหีบ [ Tween ]", "เก็บหีบอัตโนมัติโดยใช้ Tween"],
+
+  "Update Boss List": ["อัปเดตรายการบอส", "อัปเดตรายการบอสที่มี"],
+  "Boss List": ["รายการบอส", "เลือกบอสเพื่อโจมตี"],
+  "Auto Kill Boss Selected": ["ฆ่าบอสที่เลือก", "โจมตีบอสที่เลือกอัตโนมัติ"],
+  "Auto Farm All Bosses": ["ฟาร์มบอสทั้งหมด", "โจมตีบอสทั้งหมดอัตโนมัติ"],
+  "Take Boss Quest": ["รับภารกิจบอส", "รับภารกิจบอสอัตโนมัติ"],
+
+  "Material List": ["รายการวัสดุ", "เลือกวัสดุเพื่อฟาร์ม"],
+  "Auto Farm Material": ["ฟาร์มวัสดุ", "ฟาร์มวัสดุอัตโนมัติ"],
+
+  "Select Enemy Health [ % ]": ["เลือกเลือดศัตรู [ % ]", "กำหนดเปอร์เซ็นต์เลือดศัตรูเพื่อโจมตี"],
+  "Select Skills": ["เลือกสกิล", "เลือกสกิลที่จะใช้"],
+  "Auto Farm Mastery": ["ฟาร์มความชำนาญ", "เพิ่มความชำนาญสกิลอัตโนมัติ"],
+
+  "Auto Farm Sea": ["ฟาร์มทะเลอัตโนมัติ", "ฟาร์มในทะเลอัตโนมัติ"],
+  "Auto Drive Boat": ["ขับเรืออัตโนมัติ", "ขับเรืออัตโนมัติหาก 'ฟาร์มทะเล' เปิดอยู่"],
+  "Use Gun": ["ใช้ปืน", "ใช้ปืนเพื่อโจมตี Sea Beasts และเรือ"],
+
+  "Boat Tween Speed": ["ความเร็วเรือ", "ปรับความเร็วเรือ"],
+  "Teleport to NPC": ["วาร์ปไปหา NPC", "ไปหา NPC ที่เลือก"],
+  "Look To Moon": ["มองดวงจันทร์", "มองดวงจันทร์เพื่อให้มันสว่าง"],
+  "Auto Finish Trial": ["ทำ Trial อัตโนมัติ", "ทำ Trial ของเผ่าอัตโนมัติ"],
+
+  "Auto Dojo Trainer Quest": ["ภารกิจ Dojo Trainer", "ทำภารกิจ Dojo อัตโนมัติ"],
+  "Auto Dragon Hunter Quest": ["ภารกิจ Dragon Hunter", "ทุกครั้งที่ทำภารกิจเสร็จจะได้รับ 'Blaze Ember'"],
+  "Auto Elite Hunter": ["Elite Hunter อัตโนมัติ", "ทำภารกิจ Elite Hunter ทุก 10 นาที"],
+  "Auto Rip Indra": ["Auto Rip Indra", "รับแก้ว, เปิดแผ่น, เรียกและฆ่า Rip Indra"],
+  "Auto Cake Prince": ["Auto Cake Prince", "เรียกและฆ่า Cake Prince"],
+  "Auto Dough King": ["Auto Dough King", "รับแก้วหวาน, เรียกและฆ่า Dough King"],
+
+  "Auto Collect Yama": ["เก็บ Yama อัตโนมัติ", "รับดาบ Yama เมื่อฆ่า Elite 30 ตัว"],
+  "Auto Tushita": ["รับ Tushita อัตโนมัติ", "แก้ปริศนาและฆ่า Longma"],
+  "Auto Cursed Dual Katana": ["Auto Cursed Dual Katana", "ปลดล็อก Cursed Dual Katana"],
+
+  "Auto Citizen Quest": ["ทำภารกิจ Citizen", "ทำภารกิจ Citizen เพื่อปลดล็อก Musketeer Hat"],
+  "Auto Rainbow Haki": ["Haki สายรุ้งอัตโนมัติ", "ปลดล็อกสี Haki สายรุ้ง"],
+
+  "Third Sea": ["ทะเลที่สาม", "ปลดล็อกการเข้าถึงทะเลที่สาม"],
+  "Auto Third Sea": ["ทะเลที่สามอัตโนมัติ", "ทำเงื่อนไขเพื่อเข้าถึงทะเลที่สาม"],
+  "Auto Kill Don Swan": ["Auto Don Swan", "ส่งผลไม้ให้ Trevor และฆ่า Don Swan"],
+
+  "Auto Darkbeard": ["Auto Darkbeard", "เรียกและฆ่า Darkbeard"],
+  "Auto Cursed Captain": ["Auto Cursed Captain", "ฆ่า Cursed Captain เมื่อปรากฏ"],
+
+  "Auto Kill Law": ["บุก Law", "เริ่มบุกและฆ่า Law"],
+  "Auto Buy Microchip": ["ซื้อ Microchip", "ซื้อ Microchip สำหรับการบุก Law"],
+
+  "Legendary Sword": "ดาบในตำนาน",
+  "Aura Color": "สี Haki",
+  "Auto Buy Legendary Sword": ["ซื้อดาบในตำนาน", "ซื้อดาบอัตโนมัติเมื่อ NPC ปรากฏ"],
+  "Auto Rengoku": ["Auto Rengoku", "รับกุญแจลับและปลดล็อก Rengoku"],
+  "Auto Collect Berries": ["เก็บ Berries อัตโนมัติ", "เก็บ Berries ที่กระจายอยู่บนแผนที่"],
+  "Auto Berry Hop": ["เปลี่ยนเซิร์ฟเวอร์ Berries อัตโนมัติ", "เปลี่ยนเซิร์ฟเวอร์หลังจากเก็บ Berries ทั้งหมด"],
+  "Select Aura": ["เลือกสี", "เลือกสี Haki"],
+  "Auto Craft Aura Color": ["คราฟต์สีอัตโนมัติ", "เก็บ Berries จนกว่าจะคราฟต์สี Haki ที่เลือกได้"],
+  "Auto Craft Hop": ["เปลี่ยนเซิร์ฟเวอร์คราฟต์อัตโนมัติ", "เปลี่ยนเซิร์ฟเวอร์เพื่อหา Berries ที่ขาด"],
+
+  "Race": "เผ่า",
+  "Auto Race V2": ["อัปเกรดเผ่าเป็น V2", "อัปเกรดเผ่าเป็น V2"],
+  "Auto Race V3": ["อัปเกรดเผ่าเป็น V3", "อัปเกรดเผ่า (เฉพาะ Mink, Human หรือ Shark)"],
+
+  "Auto Bartilo Quest": ["ภารกิจ Bartilo อัตโนมัติ", "ต้องการเลเวล 850"],
+
+  "Second Sea": "ทะเลที่สอง",
+  "Auto Second Sea": ["ทะเลที่สองอัตโนมัติ", "ทำเงื่อนไขเพื่อเข้าถึงทะเลที่สอง"],
+
+  "Swords": "ดาบ",
+  "Auto Unlock Saber": ["ปลดล็อก Saber", "แก้ปริศนาและเอาชนะ Shanks"],
+  "Auto Pole V1": ["Auto Pole V1", "เอาชนะ Thunder God เพื่อรับ Pole V1"],
+  "Auto Saw Sword": ["Auto Saw Sword", "เอาชนะ The Saw เพื่อรับ Shark Saw"],
+
+  "Fruits": "ผลไม้",
+  "Auto Store Fruits": ["เก็บผลไม้อัตโนมัติ", "เก็บผลไม้ในคลัง"],
+  "Teleport To Fruits": ["เก็บผลไม้อัตโนมัติ", "เก็บผลไม้ที่อยู่บนแผนที่"],
+  "Auto Random Fruit": ["สุ่มผลไม้อัตโนมัติ", "สุ่มผลไม้โดยอัตโนมัติ"],
+
+  "Select Chip": ["เลือกชิป", "เลือกชิปเพื่อเริ่มการบุก"],
+  "Auto Farm Raid": ["ฟาร์มการบุกอัตโนมัติ", "ฟาร์มการบุก ปลุกพลัง และโจมตีอัตโนมัติ"],
+  "Auto Buy Chip": ["ซื้อชิปอัตโนมัติ", "ซื้อชิปสำหรับการบุก"],
+  "Unstore Common Fruits": ["นำผลไม้ทั่วไปออก", "นำผลไม้ทั่วไปออกเพื่อแลกกับ Microchip"],
+
+  "Islands": "เกาะ",
+  "Islands Stats": "สถานะเกาะ",
+  "Auto Craft Volcanic Magnet": ["คราฟต์ Volcanic Magnet", "เก็บวัสดุและคราฟต์ Volcanic Magnet"],
+  "Auto Prehistoric Island": ["เกาะยุคก่อนประวัติศาสตร์อัตโนมัติ", "ฟาร์มทรัพยากรบนเกาะ"],
+  "Auto Kill Lava Golem": ["ฆ่า Lava Golem", "ฆ่า Lava Golem ด้วย 'Kill Aura'"],
+  "Auto Collect Dinosaur Bones": ["เก็บกระดูกไดโนเสาร์", "เก็บกระดูกหลังจากเสร็จสิ้นเกาะยุคก่อนประวัติศาสตร์"],
+  "Auto Collect Dragon Egg": ["เก็บไข่มังกร", "เก็บไข่มังกร"],
+  "Reset after finishing": ["รีเซ็ตหลังจากเสร็จสิ้น", "รีเซ็ตตัวละครหลังจากเสร็จสิ้นเกาะยุคก่อนประวัติศาสตร์"],
+
+  "Kitsune Island": "เกาะ Kitsune",
+  "Trade Azure Ember Amount": ["จำนวนการแลก", "กำหนดจำนวน Azure Ember เพื่อแลก"],
+  "Auto Trade Azure Ember": ["แลก Azure Ember อัตโนมัติ", "แลก Azure Ember เพื่อรับรางวัลสุ่ม"],
+  "Auto Kitsune Island": ["ฟาร์มเกาะ Kitsune", "ค้นหาเกาะ Kitsune และเก็บ Azure Ember"],
+
+  "Mirage Island": "เกาะ Mirage",
+  "Teleport To Gear": ["วาร์ปไปหา Gear", "ไปหา Gear หากมี"],
+  "Teleport To Mirage": ["วาร์ปไปหา Mirage", "ไปหาเกาะ Mirage"],
+  "Teleport To Fruit Dealer": ["วาร์ปไปหา Fruit Dealer", "ไปหา NPC ขายผลไม้บนเกาะ Mirage"],
+
+  "Teleport to Sea 1": ["ไปทะเล 1", "วาร์ปไปทะเล 1"],
+  "Teleport to Sea 2": ["ไปทะเล 2", "วาร์ปไปทะเล 2"],
+  "Teleport to Sea 3": ["ไปทะเล 3", "วาร์ปไปทะเล 3"],
+
+  "Select Island": "เลือกเกาะ",
+  "Teleport to Island": "วาร์ปไปหาเกาะ",
+  "Teleport to Temple of Time": "วาร์ปไปหาวิหารเวลา",
+
+  "ESP Players": ["ESP ผู้เล่น", "แสดงผู้เล่นบนแผนที่"],
+  "ESP Fruits": ["ESP ผลไม้", "แสดงผลไม้บนแผนที่"],
+  "ESP Islands": ["ESP เกาะ", "แสดงเกาะบนแผนที่"],
+  "ESP Chests": ["ESP หีบ", "แสดงหีบที่สามารถเก็บได้"],
+  "ESP Berries": ["ESP Berries", "แสดง Berries ที่สามารถเก็บได้"],
+
+  "Execute Clipboard": ["รันจาก Clipboard", "รันสคริปต์จาก Clipboard"],
+  "Redeem all Codes": ["ใช้โค้ดทั้งหมด", "รับรางวัลจากโค้ดที่มี"],
+
+  "Rejoin Server": ["เข้าร่วมเซิร์ฟเวอร์อีกครั้ง", "เข้าร่วมเซิร์ฟเวอร์ปัจจุบันอีกครั้ง"],
+  "Server Hop": ["เปลี่ยนเซิร์ฟเวอร์", "เข้าร่วมเซิร์ฟเวอร์อื่น"],
+  "Rejoin": ["เข้าร่วมอีกครั้ง", "เข้าร่วมเซิร์ฟเวอร์ปัจจุบันอีกครั้ง"],
+
+  "Join Pirates Team": ["เข้าร่วมโจรสลัด", "เข้าร่วมทีมโจรสลัด"],
+  "Join Marines Team": ["เข้าร่วมทหารเรือ", "เข้าร่วมทีมทหารเรือ"],
+
+  "Devil Fruit Shop": ["ร้านผลไม้ปีศาจ", "เปิดร้านผลไม้ปีศาจ"],
+  "Advanced Fruit Dealer": ["ร้านผลไม้ขั้นสูง", "เปิดร้านผลไม้บนเกาะ Mirage"],
+  "Titles": ["ตำแหน่ง", "แสดงตำแหน่งของคุณ"],
+  "Haki Color": ["สี Haki", "เปลี่ยนสี Haki ของคุณ"],
+
+  "Auto Active Race V3": ["เปิดเผ่า V3 อัตโนมัติ", "เปิดเผ่า V3 ทุก 30 วินาที"],
+  "Auto Active Race V4": ["เปิดเผ่า V4 อัตโนมัติ", "เปิดเผ่า V4 เมื่อชาร์จเต็ม"],
+
+  "Remove Fog": ["ลบหมอก", "ลบหมอกบนแผนที่"],
+
+  "Remove Damage": ["ลบความเสียหาย", "ปิดการแสดงความเสียหาย"],
+  "Remove Notifications": ["ลบการแจ้งเตือน", "ปิดการแจ้งเตือนในเกม"],
+
+  "Walk On Water": ["เดินบนน้ำ", "อนุญาตให้เดินบนน้ำ"],
+  "Anti AFK": ["ป้องกัน AFK", "ป้องกันการถูกตัดการเชื่อมต่อ"],
+
+  "Take Quest Debounce": ["รอภารกิจ", "รอ 75 วินาทีก่อนรับภารกิจใหม่"],
+  "Smooth Farm Mode": ["โหมดฟาร์มลื่นไหล", "ลดการคำนวณเพื่อให้เกมเบาลง"],
+
+  "Race Reroll": "สุ่มเผ่า",
+  "Reset Stats": "รีเซ็ตสถานะ",
+
+  "Auto Draco V2 & V3": ["Auto Draco V2 & V3", "อัปเกรดเผ่า Draco เป็น V2 และ V3 อัตโนมัติ"],
+
+  "Only on Sea 2 and 3": "มีเฉพาะในทะเล 2 และ 3",
+  "Acessories": "อุปกรณ์เสริม",
+  "Gun": "ปืน",
+  "Select NPC": "เลือก NPC",
+  "Farm Select": "เลือกฟาร์ม",
+  "Travel": "เดินทาง",
+  "Settings": "การตั้งค่า",
+  "ESP": "ESP",
+  "Codes": "โค้ด",
+  "Server": "เซิร์ฟเวอร์",
+  "Team": "ทีม",
+  "Menu": "เมนู",
+  "Visual": "ภาพ",
+  "More FPS": "เพิ่ม FPS",
+  "Christmas": "คริสต์มาส",
+  "Bones": "กระดูก",
+  "Ectoplasm": "Ectoplasm",
+  "Fruit/Raid": "ผลไม้/บุก",
+  "Teleport": "วาร์ป",
+  "Chest": "หีบ",
+  "Quests/Items": "ภารกิจ/ไอเทม",
+  "Shop": "ร้านค้า",
+  "Sword": "ดาบ",
+  "Quest": "ภารกิจ",
+  "Bosses": "บอส",
+  "Fish": "ปลา",
+  "Boats": "เรือ",
+  "Configs": "การตั้งค่า",
+  "Sea": "ทะเล",
+  "Farm": "ฟาร์ม",
+  "Misc": "อื่นๆ",
+  "Others": "อื่นๆ",
+  "Race V4": "เผ่า V4",
+  "Enemies": "ศัตรู",
+  "Frags": "เศษ",
+  "Accessories": "อุปกรณ์เสริม"
+}
