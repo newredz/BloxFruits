@@ -554,6 +554,9 @@ local Module = {} do
 		Module.AttackCooldown = 0
 		Module.PirateRaid = 0
 		
+		Module.Webhooks = true
+		Module.JobIds = true
+		
 		Module.Progress = {}
 		Module.EnemyLocations = {}
 		Module.SpawnLocations = {}
