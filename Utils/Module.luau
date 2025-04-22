@@ -1759,15 +1759,15 @@ local Module = {} do
 	Module.RaidList = (function()
 		local Success, RaidModule = pcall(require, ReplicatedStorage:WaitForChild("Raids"))
 		
-		if not Success then
+		if not Success or type(RaidModule) ~= "table" then
 			return {
 				"Phoenix", "Dough", "Flame", "Ice", "Quake", "Light";
 				"Dark", "Spider", "Rumble", "Magma", "Buddha", "Sand";
 			}
 		end
 		
-		local AdvancedRaids = RaidModule.advancedRaids
-		local NormalRaids = RaidModule.raids
+		local AdvancedRaids = RaidModule.advancedRaids or {}
+		local NormalRaids = RaidModule.raids or {}
 		local RaidList = {}
 		
 		for i = 1, #AdvancedRaids do table.insert(RaidList, AdvancedRaids[i]) end
