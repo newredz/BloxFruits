@@ -124,11 +124,11 @@ local function CreateNewClear()
 	}
 end
 
-function ToDictionary(array: { any }): { [any]: boolean }
+function CreateDictionary(array: { string }, value: any?): { [string]: any? }
 	local Dictionary = {}
 	
-	for _, String in ipairs(array) do
-		Dictionary[String] = true
+	for _, string in ipairs(array) do
+		Dictionary[string] = if type(value) == "table" then {} else value
 	end
 	
 	return Dictionary
@@ -1086,22 +1086,20 @@ local Module = {} do
 	})
 	
 	Module.Enemies = (function()
-		local EnemiesModule = {
-			__CakePrince = {},
-			__PirateRaid = {},
-			__RaidBoss = {},
-			__Bones = {},
-			__Elite = {},
-			__Others = {}
-		}
+		local EnemiesModule = CreateDictionary({
+			"__CakePrince", "__PirateRaid", "__RaidBoss", "__TyrantSkies", "__Bones", "__Elite", "__Others", 
+		}, {})
 		
 		local Signals = Module.Signals
 		local IsAlive = Module.IsAlive
 		local SeaCastle = CFrame.new(-5556, 314, -2988)
 		
-		local Elites = ToDictionary({ "Deandre", "Diablo", "Urban" })
-		local Bones = ToDictionary({ "Reborn Skeleton", "Living Zombie", "Demonic Soul", "Posessed Mummy" })
-		local CakePrince = ToDictionary({ "Head Baker", "Baking Staff", "Cake Guard", "Cookie Crafter" })
+		local TagsMobs = {
+			Elites = CreateDictionary({ "Deandre", "Diablo", "Urban" }, true),
+			Bones = CreateDictionary({ "Reborn Skeleton", "Living Zombie", "Demonic Soul", "Posessed Mummy" }, true),
+			CakePrince = CreateDictionary({ "Head Baker", "Baking Staff", "Cake Guard", "Cookie Crafter" }, true),
+			TyrantSkies = CreateDictionary({ "Sun-kissed Warrior", "Skull Slayer", "Isle Champion", "Serpent Hunter" }, true)
+		}
 		
 		local Attachment = Instance.new("Attachment") do
 			local AlignPosition = Instance.new("AlignPosition")
@@ -1114,16 +1112,14 @@ local Module = {} do
 		end
 		
 		local function newEnemy(List, Enemy)
-			if table.find(List, Enemy) then
-				return nil
-			end
-			
-			local Humanoid = Enemy:WaitForChild("Humanoid")
-			
-			if Humanoid and Humanoid.Health > 0 then
-				table.insert(List, Enemy)
-				Humanoid.Died:Wait()
-				table.remove(List, table.find(List, Enemy))
+			if not table.find(List, Enemy) then
+				local Humanoid = Enemy:WaitForChild("Humanoid")
+				
+				if Humanoid and Humanoid.Health > 0 then
+					table.insert(List, Enemy)
+					Humanoid.Died:Wait()
+					table.remove(List, table.find(List, Enemy))
+				end
 			end
 		end
 		
@@ -1148,16 +1144,16 @@ local Module = {} do
 			local Name = Enemy.Name
 			local Others = EnemiesModule.__Others
 			
-			if EnemiesModule[`__{Name}`] then
-				task.spawn(newEnemy, EnemiesModule[`__{Name}`], Enemy)
-			elseif Enemy:GetAttribute("RaidBoss") then
+			if Enemy:GetAttribute("RaidBoss") then
 				task.spawn(newEnemy, EnemiesModule.__RaidBoss, Enemy)
-			elseif Elites[Name] then
-				task.spawn(newEnemy, EnemiesModule.__Elite, Enemy)
-			elseif Bones[Name] then
-				task.spawn(newEnemy, EnemiesModule.__Bones, Enemy)
-			elseif CakePrince[Name] then
-				task.spawn(newEnemy, EnemiesModule.__CakePrince, Enemy)
+			elseif EnemiesModule[`__{ Name }`] then
+				task.spawn(newEnemy, EnemiesModule[`__{ Name }`], Enemy)
+			else
+				for Tag, Mobs in pairs(TagsMobs) do
+					if Mobs[Name] then
+						task.spawn(newEnemy, EnemiesModule[`__{ Tag }`], Enemy)
+					end
+				end
 			end
 			
 			if Module.GameData.Sea == 3 then
@@ -1891,7 +1887,7 @@ local Module = {} do
 	
 	Module.Hooking = (function()
 		local Hooking = {
-			Skills = ToDictionary({ "Z", "X", "C", "V", "F" }),
+			Skills = CreateDictionary({ "Z", "X", "C", "V", "F" }, true),
 			ClosestsEnemies = {}
 		}
 		
