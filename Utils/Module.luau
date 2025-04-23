@@ -442,6 +442,10 @@ local Module = {} do
 			},
 			
 			-- Bosses Sea 3
+			["Tyrant of the Skies"] = {
+				RaidBoss = true,
+				Position = CFrame.new(-16252, 153, 1394)
+			},
 			["Cake Prince"] = {
 				RaidBoss = true,
 				Position = CFrame.new(-2103, 70, -12165)
@@ -1095,10 +1099,10 @@ local Module = {} do
 		local SeaCastle = CFrame.new(-5556, 314, -2988)
 		
 		local TagsMobs = {
-			Elites = CreateDictionary({ "Deandre", "Diablo", "Urban" }, true),
-			Bones = CreateDictionary({ "Reborn Skeleton", "Living Zombie", "Demonic Soul", "Posessed Mummy" }, true),
-			CakePrince = CreateDictionary({ "Head Baker", "Baking Staff", "Cake Guard", "Cookie Crafter" }, true),
-			TyrantSkies = CreateDictionary({ "Sun-kissed Warrior", "Skull Slayer", "Isle Champion", "Serpent Hunter" }, true)
+			__Elite = CreateDictionary({ "Deandre", "Diablo", "Urban" }, true),
+			__Bones = CreateDictionary({ "Reborn Skeleton", "Living Zombie", "Demonic Soul", "Posessed Mummy" }, true),
+			__CakePrince = CreateDictionary({ "Head Baker", "Baking Staff", "Cake Guard", "Cookie Crafter" }, true),
+			__TyrantSkies = CreateDictionary({ "Sun-kissed Warrior", "Skull Slayer", "Isle Champion", "Serpent Hunter" }, true)
 		}
 		
 		local Attachment = Instance.new("Attachment") do
@@ -1151,7 +1155,7 @@ local Module = {} do
 			else
 				for Tag, Mobs in pairs(TagsMobs) do
 					if Mobs[Name] then
-						task.spawn(newEnemy, EnemiesModule[`__{ Tag }`], Enemy)
+						task.spawn(newEnemy, EnemiesModule[Tag], Enemy)
 						break
 					end
 				end
@@ -1499,8 +1503,8 @@ local Module = {} do
 			
 			if Humanoid.Sit and (ToolTip == "Sword" or ToolTip == "Melee" or ToolTip == "Gun") then
 				return false
-			elseif Stun and Stun.Value > 0 then -- {{ or Busy and Busy.Value }}
-				return false
+			-- elseif Stun and Stun.Value > 0 then {{ or Busy and Busy.Value }}
+			--   return false
 			end
 			
 			return true
@@ -2050,17 +2054,17 @@ local Module = {} do
 		return Hooking
 	end)()
 	
-	task.defer(function()
-		local DeathEffect = require(WaitChilds(ReplicatedStorage, "Effect", "Container", "Death"))
-		local CameraShaker = require(WaitChilds(ReplicatedStorage, "Util", "CameraShaker"))
-		
-		if CameraShaker then
-			CameraShaker:Stop()
-		end
-		if hookfunction then
-			hookfunction(DeathEffect, function(...) return ... end)
-		end
-	end)
+	-- task.defer(function()
+	-- 	local DeathEffect = require(WaitChilds(ReplicatedStorage, "Effect", "Container", "Death"))
+	-- 	local CameraShaker = require(WaitChilds(ReplicatedStorage, "Util", "CameraShaker"))
+	-- 	
+	-- 	if CameraShaker then
+	-- 		CameraShaker:Stop()
+	-- 	end
+	-- 	if hookfunction then
+	-- 		hookfunction(DeathEffect, function(...) return ... end)
+	-- 	end
+	-- end)
 	
 	task.defer(function()
 		local OwnersId = { 3095250, 17884881 }
