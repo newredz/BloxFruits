@@ -1504,7 +1504,7 @@ local Module = {} do
 			if Humanoid.Sit and (ToolTip == "Sword" or ToolTip == "Melee" or ToolTip == "Gun") then
 				return false
 			-- elseif Stun and Stun.Value > 0 then {{ or Busy and Busy.Value }}
-			--   return false
+			--	 return false
 			end
 			
 			return true
@@ -1603,14 +1603,21 @@ local Module = {} do
 		function FastAttack:UseNormalClick(Humanoid: Humanoid, Character: Character, Cooldown: number): (nil)
 			self.EnemyRootPart = nil
 			local BladeHits = self:GetAllBladeHits(Character)
+			local EnemyRoot = self.EnemyRootPart
 			
-			if self.EnemyRootPart then
-				RE_RegisterAttack:FireServer(Cooldown)
-				
+			if EnemyRoot then
 				if SUCCESS_FLAGS and COMBAT_REMOTE_THREAD and HIT_FUNCTION then
-					HIT_FUNCTION(self.EnemyRootPart, BladeHits)
+					RE_RegisterAttack:FireServer(Cooldown)
+					HIT_FUNCTION(EnemyRoot, BladeHits)
 				elseif SUCCESS_FLAGS and not COMBAT_REMOTE_THREAD then
-					RE_RegisterHit:FireServer(self.EnemyRootPart, BladeHits)
+					RE_RegisterAttack:FireServer(Cooldown)
+					RE_RegisterHit:FireServer(EnemyRoot, BladeHits)
+				else
+					EnemyRoot.Size = Vector3.one * 50
+					for i = 1, #BladeHits do BladeHits[i][2].Size = Vector3.one * 50 end
+					
+					VirtualInputManager:SendMouseButtonEvent(0, 0, 0, true, game, 1);task.wait(0.05)
+					VirtualInputManager:SendMouseButtonEvent(0, 0, 0, false, game, 1)
 				end
 			end
 		end
