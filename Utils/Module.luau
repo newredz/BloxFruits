@@ -416,7 +416,7 @@ local Module = {} do
 				Position = CFrame.new(2316, 449, 787),
 				Quest = {"Area2Quest", CFrame.new(635, 73, 919)}
 			},
-			["Fajita"] = {
+			["Orbitus"] = {
 				IsBoss = true,
 				Level = 925,
 				Position = CFrame.new(-2086, 73, -4208),
