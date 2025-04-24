@@ -249,7 +249,7 @@ local Module = {} do
 		Sea = ({ [2753915549] = 1, [4442272183] = 2, [7449423635] = 3 })[game.PlaceId] or 0,
 		SeasName = { "Main", "Dressrosa", "Zou" },
 		MaxMastery = 600,
-		MaxLevel = 2600,
+		MaxLevel = 2650
 	}
 	
 	Module.Debounce = {
@@ -2084,7 +2084,7 @@ local Module = {} do
 		}
 		
 		local function PossibleStaff(Player)
-			return LocalPlayer:Kick(`{Player.DisplayName}/@{Player.Name} maybe it's a blox fruits admin`)
+			return LocalPlayer:Kick(`{ Player.DisplayName }/@{ Player.Name } maybe it's a blox fruits admin`)
 		end
 		
 		local function StaffCheck(Player)
@@ -2092,13 +2092,11 @@ local Module = {} do
 			
 			local Data = Player:WaitForChild("Data", 30)
 			local Level = Data:WaitForChild("Level", 10)
-			local Money = Data:WaitForChild("Money", 10)
+			local Beli = Data:WaitForChild("Beli", 10)
 			
-			if not Level or not Money then return end
-			
-			if Level.Value >= Module.GameData.MaxLevel then
+			if Level.Value > Module.GameData.MaxLevel then
 				return PossibleStaff(Player)
-			elseif Money.Value >= 3e8 and Level.Value <= 700 then
+			elseif Beli.Value >= 3e8 and Level.Value <= 700 then
 				return PossibleStaff(Player)
 			elseif OwnersFriends[Player.UserId] then
 				return PossibleStaff(Player)
