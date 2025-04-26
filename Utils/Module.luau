@@ -1797,6 +1797,7 @@ local Module = {} do
 		_ENV.tween_bodyvelocity = BodyVelocity
 		
 		local IsAlive = Module.IsAlive
+		local CanRemoveTag = false
 		
 		local BaseParts, CanCollideObjects, CanTouchObjects = {}, {}, {} do
 			local function AddObjectToBaseParts(Object)
@@ -1832,14 +1833,14 @@ local Module = {} do
 		end
 		
 		local function NoClipOnStepped(Character)
-			if not IsAlive(Character) then
-				return nil
-			end
+			if not IsAlive(Character) then return end
 			
 			if _ENV.OnFarm and not Player:HasTag("Teleporting") then
 				Player:AddTag("Teleporting")
-			elseif not _ENV.OnFarm and Player:HasTag("Teleporting") then
+				CanRemoveTag = true
+			elseif not _ENV.OnFarm and CanRemoveTag and Player:HasTag("Teleporting") then
 				Player:RemoveTag("Teleporting")
+				CanRemoveTag = false
 			end
 			
 			if _ENV.OnFarm then
