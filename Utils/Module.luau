@@ -1463,7 +1463,7 @@ local Module = {} do
 			end
 		}
 		
-		local function ExpandsHitBox(Enemies: { Model, BasePart })
+		local function ExpandsHitBox(Enemies)
 			for i = 1, #Enemies do
 				Enemies[i][2].Size = Vector3.one * 50
 				Enemies[i][2].Transparency = 1
