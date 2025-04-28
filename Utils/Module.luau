@@ -1463,6 +1463,13 @@ local Module = {} do
 			end
 		}
 		
+		local function ExpandsHitBox(Enemies: { Model, BasePart })
+			for i = 1, #Enemies do
+				Enemies[i][2].Size = Vector3.one * 50
+				Enemies[i][2].Transparency = 1
+			end
+		end
+		
 		function FastAttack:ShootInTarget(TargetPosition: Vector3): (nil)
 			local Equipped = IsAlive(Player.Character) and Player.Character:FindFirstChildOfClass("Tool")
 			
@@ -1602,18 +1609,18 @@ local Module = {} do
 		function FastAttack:UseNormalClick(Humanoid: Humanoid, Character: Character, Cooldown: number): (nil)
 			self.EnemyRootPart = nil
 			local BladeHits = self:GetAllBladeHits(Character)
-			local EnemyRoot = self.EnemyRootPart
+			local EnemyHitBox = self.EnemyRootPart
 			
-			if EnemyRoot then
+			if EnemyHitBox then
 				if SUCCESS_FLAGS and COMBAT_REMOTE_THREAD and HIT_FUNCTION then
 					RE_RegisterAttack:FireServer(Cooldown)
-					HIT_FUNCTION(EnemyRoot, BladeHits)
+					HIT_FUNCTION(EnemyHitBox, BladeHits)
 				elseif SUCCESS_FLAGS and not COMBAT_REMOTE_THREAD then
 					RE_RegisterAttack:FireServer(Cooldown)
-					RE_RegisterHit:FireServer(EnemyRoot, BladeHits)
+					RE_RegisterHit:FireServer(EnemyHitBox, BladeHits)
 				else
-					EnemyRoot.Size = Vector3.one * 50
-					for i = 1, #BladeHits do BladeHits[i][2].Size = Vector3.one * 50 end
+					table.insert(BladeHits, { Enemy, EnemyHitBox })
+					ExpandsHitBox(BladeHits)
 					
 					VirtualInputManager:SendMouseButtonEvent(0, 0, 0, true, game, 1);task.wait(0.05)
 					VirtualInputManager:SendMouseButtonEvent(0, 0, 0, false, game, 1)
