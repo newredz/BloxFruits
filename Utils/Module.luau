@@ -1966,7 +1966,7 @@ local Module = {} do
 				local Players = Players:GetPlayers()
 				local Enemies = Enemies:GetChildren()
 				
-				local Distance = if Equipped.ToolTip == "Gun" then 120 else 600
+				local Distance = if Equipped.ToolTip == "Gun" then 120 else 900
 				local ClosestsDistance = if Equipped.ToolTip == "Gun" then 120 else 60
 				
 				for i = 1, #Players do
