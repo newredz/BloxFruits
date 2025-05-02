@@ -23,6 +23,7 @@ local WorldOrigin: Folder = workspace:WaitForChild("_WorldOrigin")
 local Characters: Folder = workspace:WaitForChild("Characters")
 local SeaBeasts: Folder = workspace:WaitForChild("SeaBeasts")
 local Enemies: Folder = workspace:WaitForChild("Enemies")
+local Boats: Folder = workspace:WaitForChild("Boats")
 local Map: Model = workspace:WaitForChild("Map")
 
 local EnemySpawns: Folder = WorldOrigin:WaitForChild("EnemySpawns")
@@ -64,16 +65,6 @@ _ENV._KillAura_Tag = KILLAURA_TAG
 
 local function GetEnemyName(string: string): string
 	return (string:find("Lv. ") and string:gsub(" %pLv. %d+%p", "") or string):gsub(" %pBoss%p", "")
-end
-
-local function GetCharacterHumanoid(Character)
-	if Character:GetAttribute("IsBoat") or Character.Parent == SeaBeasts then
-		if Character:FindFirstChild("Health") then
-			return Character.Health
-		end
-	else
-		return Character:FindFirstChildOfClass("Humanoid")
-	end
 end
 
 local function CheckPlayerAlly(__Player: Player): boolean
@@ -737,7 +728,13 @@ local Module = {} do
 	function Module.IsAlive(Character)
 		if Character then
 			local Humanoids = Cached.Humanoids
-			local Humanoid = Humanoids[Character] or GetCharacterHumanoid(Character)
+			local Humanoid = Humanoids[Character] or Character:FindFirstChild("Humanoid")
+			
+			if not Humanoid and Character.Parent == Boats then
+				return true
+			elseif Character.Parent == SeaBeasts then
+				Humanoid = Character:FindFirstChild("Health")
+			end
 			
 			if Humanoid then
 				if not Humanoids[Character] then
@@ -972,6 +969,20 @@ local Module = {} do
 		end
 		
 		return result
+	end
+	
+	function Module:RemoveVolcanoLava()
+		local PrehistoricIsland = Map.PrehistoricIsland
+		
+		if PrehistoricIsland.Core:FindFirstChild("InteriorLava") then
+			PrehistoricIsland.Core.InteriorLava:Destroy()
+		end
+		
+		for _, Instance in PrehistoricIsland:GetDescendants() do
+			if string.find(string.lower(Instance.Name), "lava") and Instance:IsA("BasePart") then
+				Instance:Destroy()
+			end
+		end
 	end
 	
 	function Module:RemoveBoatCollision(Boat)
