@@ -809,18 +809,8 @@ local Module = {} do
 	end
 	
 	function Module.EnemySpawned(EnemyName)
-		if (tick() - Module.Debounce.GetEnemy) <= 0.25 then
-			return nil
-		end
-		
 		local Enemies = Module.Enemies
-		local Enemy = if type(EnemyName) == "table" then Enemies:GetClosest(EnemyName) else Enemies:GetEnemyByTag(EnemyName)
-		
-		if Enemy then
-			return Enemy
-		elseif Settings.SmoothMode then
-			Module.Debounce.GetEnemy = tick()
-		end
+		return if type(EnemyName) == "table" then Enemies:GetClosest(EnemyName) else Enemies:GetEnemyByTag(EnemyName)
 	end
 	
 	function Module:IsBlacklistedExecutor(): boolean
@@ -1132,7 +1122,7 @@ local Module = {} do
 			
 			if Humanoid and Humanoid.ClassName == "Humanoid" and Humanoid.Health > 0 then
 				table.insert(list, NewEnemy)
-				while Humanoid and Humanoid.Health > 0 do Humanoid.Died:Wait() end
+				Humanoid.Died:Wait()
 				table.remove(list, table.find(list, NewEnemy))
 			end
 		end
