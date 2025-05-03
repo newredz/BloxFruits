@@ -1156,8 +1156,8 @@ local Module = {} do
 			local EnemyName = Enemy.Name
 			local Others = EnemiesModule.__Others
 			
-			Others[Name] = Others[Name] or {}
-			task.spawn(New, Others[Name], Enemy)
+			Others[EnemyName] = Others[EnemyName] or {}
+			task.spawn(New, Others[EnemyName], Enemy)
 			
 			if Module.GameData.Sea == 3 then
 				task.spawn(IsFromPiratesSea, Enemy)
