@@ -1594,6 +1594,9 @@ local Module = {} do
 		end
 		
 		function FastAttack:UseFruitM1(Character: Character, Equipped: Tool, Combo: number): (nil)
+			if self.UsingM1 then return end
+			
+			local M1Active = Equipped:FindFirstChild("M1Active")
 			local Position = Character:GetPivot().Position
 			local EnemyList = Enemies:GetChildren()
 			
@@ -1602,7 +1605,7 @@ local Module = {} do
 				local PrimaryPart = Enemy.PrimaryPart
 				if IsAlive(Enemy) and PrimaryPart and (PrimaryPart.Position - Position).Magnitude <= 50 then
 					local Direction = (PrimaryPart.Position - Position).Unit
-					return Equipped.LeftClickRemote:FireServer(Direction, Combo)
+					Equipped.LeftClickRemote:FireServer(Direction, Combo)
 				end
 			end
 		end
@@ -1804,7 +1807,7 @@ local Module = {} do
 		_ENV.tween_bodyvelocity = BodyVelocity
 		
 		local IsAlive = Module.IsAlive
-		local CanRemoveTag = false
+		local IsCustomTag = false
 		
 		local BaseParts, CanCollideObjects, CanTouchObjects = {}, {}, {} do
 			local function AddObjectToBaseParts(Object)
@@ -1842,12 +1845,16 @@ local Module = {} do
 		local function NoClipOnStepped(Character)
 			if not IsAlive(Character) then return end
 			
+			if not IsCustomTag and _ENV.OnFarm then
+				IsCustomTag = true
+			end
+			
 			if _ENV.OnFarm and not Player:HasTag("Teleporting") then
 				Player:AddTag("Teleporting")
-				CanRemoveTag = true
-			elseif not _ENV.OnFarm and CanRemoveTag and Player:HasTag("Teleporting") then
+				IsCustomTag = true
+			elseif IsCustomTag and not _ENV.OnFarm and Player:HasTag("Teleporting") then
 				Player:RemoveTag("Teleporting")
-				CanRemoveTag = false
+				IsCustomTag = false
 			end
 			
 			if _ENV.OnFarm then
