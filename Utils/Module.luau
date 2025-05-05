@@ -1120,7 +1120,7 @@ local Module = {} do
 			
 			local Humanoid = NewEnemy:WaitForChild("Humanoid")
 			
-			if Humanoid and Humanoid.ClassName == "Humanoid" and Humanoid.Health > 0 then
+			if Humanoid and Humanoid.Health > 0 then
 				table.insert(list, NewEnemy)
 				Humanoid.Died:Wait()
 				table.remove(list, table.find(list, NewEnemy))
@@ -1141,8 +1141,6 @@ local Module = {} do
 		end
 		
 		local function NewEnemyAdded(Enemy)
-			if Enemy:GetAttribute("IsBoat") then return end
-			
 			local EnemyName = Enemy.Name
 			local Others = EnemiesModule.__Others
 			
@@ -1327,10 +1325,7 @@ local Module = {} do
 		end
 		
 		for _, Enemy in CollectionService:GetTagged("BasicMob") do NewEnemyAdded(Enemy) end
-		for _, Enemy in Enemies:GetChildren() do NewEnemyAdded(Enemy) end
-		
 		table.insert(Connections, CollectionService:GetInstanceAddedSignal("BasicMob"):Connect(NewEnemyAdded))
-		table.insert(Connections, Enemies.ChildAdded:Connect(NewEnemyAdded))
 		
 		table.insert(Connections, CollectionService:GetInstanceAddedSignal(KILLAURA_TAG):Connect(KillAura))
 		table.insert(Connections, CollectionService:GetInstanceAddedSignal(BRING_TAG):Connect(Bring))
