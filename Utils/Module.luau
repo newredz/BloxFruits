@@ -314,7 +314,7 @@ local Module = {} do
 				Position = CFrame.new(-1128, 6, -451),
 				Quest = {"JungleQuest", CFrame.new(-1598, 37, 153)}
 			},
-			["Bobby"] = {
+			["Chef"] = {
 				IsBoss = true,
 				Level = 55,
 				Position = CFrame.new(-1131, 14, 4080),
@@ -579,6 +579,48 @@ local Module = {} do
 	end
 	
 	Module.RunFunctions = {} do
+		Module.RunFunctions.TweenModule = function()
+			local module = {}
+			module.__index = module
+			
+			local TweenService = game:GetService("TweenService")
+			
+			local tweens = {}
+			local EasingStyle = Enum.EasingStyle.Linear
+			
+			function module.new(obj, time, prop, value)
+				local self = setmetatable({}, module)
+				
+				self.tween = TweenService:Create(obj, TweenInfo.new(time, EasingStyle), { [prop] = value })
+				self.tween:Play()
+				self.value = value
+				self.object = obj
+				
+				if tweens[obj] then
+					tweens[obj]:destroy()
+				end
+				
+				tweens[obj] = self
+				return self
+			end
+			
+			function module:destroy()
+				self.tween:Pause()
+				self.tween:Destroy()
+				
+				tweens[self.object] = nil
+				setmetatable(self, nil)
+			end
+			
+			function module:stopTween(obj)
+				if obj and tweens[obj] then
+					tweens[obj]:destroy()
+				end
+			end
+			
+			return module
+		end
+		
 		Module.RunFunctions.Translator = function(Window, Translation)
 			local MakeTab = Window.MakeTab
 			
