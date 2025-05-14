@@ -579,48 +579,6 @@ local Module = {} do
 	end
 	
 	Module.RunFunctions = {} do
-		Module.RunFunctions.TweenModule = function()
-			local module = {}
-			module.__index = module
-			
-			local TweenService = game:GetService("TweenService")
-			
-			local tweens = {}
-			local EasingStyle = Enum.EasingStyle.Linear
-			
-			function module.new(obj, time, prop, value)
-				local self = setmetatable({}, module)
-				
-				self.tween = TweenService:Create(obj, TweenInfo.new(time, EasingStyle), { [prop] = value })
-				self.tween:Play()
-				self.value = value
-				self.object = obj
-				
-				if tweens[obj] then
-					tweens[obj]:destroy()
-				end
-				
-				tweens[obj] = self
-				return self
-			end
-			
-			function module:destroy()
-				self.tween:Pause()
-				self.tween:Destroy()
-				
-				tweens[self.object] = nil
-				setmetatable(self, nil)
-			end
-			
-			function module:stopTween(obj)
-				if obj and tweens[obj] then
-					tweens[obj]:destroy()
-				end
-			end
-			
-			return module
-		end
-		
 		Module.RunFunctions.Translator = function(Window, Translation)
 			local MakeTab = Window.MakeTab
 			
@@ -770,13 +728,8 @@ local Module = {} do
 	function Module.IsAlive(Character)
 		if Character then
 			local Humanoids = Cached.Humanoids
-			local Humanoid = Humanoids[Character] or Character:FindFirstChild("Humanoid")
-			
-			if not Humanoid and Character.Parent == Boats then
-				return true
-			elseif Character.Parent == SeaBeasts then
-				Humanoid = Character:FindFirstChild("Health")
-			end
+			local Parent = Character.Parent
+			local Humanoid = Humanoids[Character] or Character:FindFirstChild(if Parent == SeaBeasts then "Health" else "Humanoid")
 			
 			if Humanoid then
 				if not Humanoids[Character] then
@@ -785,6 +738,8 @@ local Module = {} do
 				
 				return Humanoid[if Humanoid.ClassName == "Humanoid" then "Health" else "Value"] > 0
 			end
+			
+			return Parent == Boats
 		end
 	end
 	
